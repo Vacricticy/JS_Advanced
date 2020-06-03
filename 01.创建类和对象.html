@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 创建类，没有小括号
+    class Star {
+        // constructor会返回一个实例对象
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+    // 创建实例对象，会自动调用constructor这个函数
+    var adele = new Star('阿黛尔', 30)
+    var wf = new Star('王菲', 40)
+    console.log(adele);
+    console.log(wf);
+</script>

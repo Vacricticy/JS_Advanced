@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    class Father {
+        constructor(x, y) {
+            this.x = x
+            this.y = y
+        }
+        sum() {
+            console.log(this.x + this.y);
+        }
+    }
+    class Son extends Father {
+        constructor(x, y) {
+            // 若调用的父类方法中含有this，则需要通过super调用父类的构造函数将其值传入父类中。
+            // 且super的调用必须位于子类使用this之前？？？？？why????
+            super(x, y)
+            this.x = x
+            this.y = y
+        }
+        subtract() {
+            console.log(this.x - this.y);
+        }
+    }
+    var son = new Son(4, 5)
+    son.subtract()
+    son.sum()
+</script>

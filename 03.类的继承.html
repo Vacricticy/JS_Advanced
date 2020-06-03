@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // class Father {
+    //     constructor() {
+
+    //     }
+    //     money() {
+    //         console.log(100);
+    //     }
+    // }
+    // class Son extends Father {
+
+    // }
+    // var son = new Son()
+    // son.money()
+
+    class Father {
+        constructor(x, y) {
+                this.x = x
+                this.y = y
+            }
+            // 父类中的this指向的是父类构造函数创建的实例对象
+        sum() {
+            console.log(this.x + this.y);
+        }
+    }
+    // 关键字extends
+    class Son extends Father {
+        constructor(x, y) {
+            // 通过super调用父类的构造函数
+            super(x, y)
+        }
+    }
+    var son = new Son(1, 2)
+    var son2 = new Son(2, 3)
+    son.sum()
+    son2.sum()
+
+    // 报错：
+    // ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+    // 原因：
+    // 在父类中访问this或从子类的构造器在返回实例对象前，必须调用super父类构造函数
+</script>

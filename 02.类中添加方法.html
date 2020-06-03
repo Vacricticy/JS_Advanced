@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    class Star {
+        constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            // 注意：方法与方法之间没有逗号
+        sing(song) {
+            console.log(this.name + song);
+        }
+    }
+    var adele = new Star('阿黛尔', 30)
+    var wf = new Star('王菲', 40)
+    console.log(adele);
+    console.log(wf);
+
+    adele.sing('hello')
+    wf.sing('人间')
+</script>

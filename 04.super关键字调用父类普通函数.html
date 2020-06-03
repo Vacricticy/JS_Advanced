@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    class Father {
+        constructor() {
+
+        }
+        say() {
+            // console.log('this is father'); xxxxxxx
+            return 'this is father'
+        }
+    }
+    class Son extends Father {
+        constructor() {
+            super()
+        }
+        say() {
+            console.log(super.say() + ' this is son'); //在consloe代码中打印某函数的结果时，应该采用return的方式返回数据，而不应该在原函数中打印，这是错误的编程方式
+        }
+    }
+    var son = new Son()
+    son.say()
+
+    // 若父类和子类含有相同的函数，则会应用就近原则，优先调用子类的函数
+</script>
