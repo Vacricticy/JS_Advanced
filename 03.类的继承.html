@@ -33,6 +33,7 @@
                 this.y = y
             }
             // 父类中的this指向的是父类构造函数创建的实例对象
+            // -此时，子类若想调用父类的方法，则需要通过super调用父类的构造函数将其值传入父类中。
         sum() {
             console.log(this.x + this.y);
         }
@@ -52,5 +53,5 @@
     // 报错：
     // ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
     // 原因：
-    // 在父类中访问this或从子类的构造器在返回实例对象前，必须调用super父类构造函数
+    // 在子类访问this或在子类的构造函数返回实例对象前，必须调用super父类构造函数
 </script>
