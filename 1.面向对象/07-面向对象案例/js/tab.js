@@ -25,6 +25,7 @@ class Tab {
                 this.guanbis[i].onclick = this.deleteTab;
                 // 绑定双击事件
                 this.spans[i].ondblclick = this.editTab;
+                this.sections[i].ondblclick = this.editTab;
             }
             // 为关闭按钮绑定关闭事件，简化为上诉操作
             // for (var i = 0; i < this.guanbis.length; i++) {
@@ -36,24 +37,20 @@ class Tab {
     updateNode() {
             this.lis = this.main.querySelectorAll("li");
             this.sections = this.main.querySelectorAll("section");
-            // 获取所有的关闭元素
             this.guanbis = this.main.querySelectorAll(".icon-guanbi");
-
-            this.spans = this.main.querySelectorAll('fisrstnav li span:first-child')
+            this.spans = this.main.querySelectorAll(".fisrstnav li span:first-child");
         }
         // 切换功能
     toggleTab() {
             // 该函数的调用者为li,所以函数内部的this指向的都是li元素，clearClass函数是实例对象的函数，所有只能通过that调用
             that.clearClass();
-            // 普通函数中的this指向的是调用者，该调用者是li元素，所有可以通过this.index获取到值
+            // 该函数的调用者为li,所以函数内部的this指向的都是li元素，所有可以通过this.index获取到值
             console.log("tab" + this.index);
             this.className = "liactive";
             that.sections[this.index].className = "conactive";
-            // console.log(document.querySelector(".conactive"));
         }
         //清除所有样式
     clearClass() {
-            // 由上面可知，调用该函数的为实例对象，则此时的this指向的就是该实例对象,所有应该用this.lis.length
             for (var i = 0; i < this.lis.length; i++) {
                 this.lis[i].className = "";
                 this.sections[i].className = "";
@@ -67,6 +64,7 @@ class Tab {
             var newTab =
                 '<li class="liactive"><span>测试1</span><span class="iconfont icon-guanbi"></span></li>';
             var newSection = `<section class="conactive">测试${random}</section>`;
+            // 在ul内部的最后一个元素的后面添加标签
             that.ul.insertAdjacentHTML("beforeend", newTab);
             that.fsection.insertAdjacentHTML("beforeend", newSection);
 
@@ -75,11 +73,11 @@ class Tab {
         }
         // 删除功能
     deleteTab(e) {
-        // 由于父元素绑定了切换事件，所有应该阻止冒泡
+        // ❤由于父元素绑定了切换事件，所有应该阻止冒泡
         e.stopPropagation();
         console.log("delete" + this.index);
         var index = this.index;
-        // 删除对应的li和section和guanbi
+        // ❤删除对应的li和section和guanbi
         that.lis[index].remove();
         that.sections[index].remove();
         that.guanbis[index].remove();
@@ -91,17 +89,44 @@ class Tab {
             return;
         }
 
-        // 若删除的是第一个元素，则会选择第二个元素，且只有第二个元素存在时，才进行操作
-        // 若删除的不是第一个元素，则会选择上一个元素
+        // ❤若删除的是第一个元素，则会切换至第二个元素，且只有第二个元素存在时，才进行操作
+        // ❤若删除的不是第一个元素，则会选择上一个元素
         index === 0 ?
             that.lis[1] && that.lis[1].click() :
             that.lis[--index].click();
 
-        // 删除后重新初始化
+        // ❤删除后重新初始化
         that.init();
     }
     editTab() {
-        alert(22)
+        var _that = this;
+
+        // 双击时禁止选中文字
+        window.getSelection ?
+            window.getSelection().removeAllRanges() :
+            document.selection.empty();
+        // 为span的内容换成表单
+        var str = this.innerHTML;
+        this.innerHTML = `<input type='text' value=${str} />`;
+        // 获取input的元素
+        var input = this.children[0];
+        // 选中input中的文字,增强用户体验
+        input.select();
+        // 离开输出框
+        input.onblur = function() {
+            // 方式一：
+            // _that.innerHTML = input.value;
+            // 方式二：
+            this.parentNode.innerHTML = input.value;
+        };
+
+        // ❤按回车键实现输入框失去焦点同样的效果
+        input.onkeyup = function(e) {
+            if (e.keyCode == 13) {
+                // 手动调用输入框失去焦点事件
+                this.blur();
+            }
+        };
     }
 }
 var tab = new Tab("#tab");

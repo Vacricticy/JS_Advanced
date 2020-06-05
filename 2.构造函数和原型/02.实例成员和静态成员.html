@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name, age) {
+            // 实例成员是指通过this添加的成员
+            this.name = name;
+            this.age = age;
+            this.sing = function() {
+                console.log(this.name + 'sing a song');
+            }
+        }
+        var adele = new Star('阿黛尔', 20)
+        console.log(adele.name); //实例成员只能通过实例对象访问
+        console.log(Star.name);
+
+        // 静态成员是指在构造函数本身添加的成员
+        Star.sex = '女'
+        console.log(Star.sex); //静态成员只能通过构造函数访问
+        console.log(adele.sex);
+    </script>
+</body>
+
+</html>

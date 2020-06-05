@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name, age) {
+            this.name = name;
+            this.age = age;
+            // 1.若函数定义再构造函数内部，则每一个创建出来的对象都会其单独开辟内存地址空间。存在浪费地址空间的问题。
+            // this.sing = function() {
+            //     console.log(this.name + 'sing a song');
+            // }
+        }
+        // 2.每一个构造函数都有一个原型对象，在原型对象上定义属性可以实现所有对象共享该属性，即共享同一块地址空间。
+        Star.prototype.sing = function() {
+            console.log(this.name + 'sing a song');
+        }
+        var adele = new Star('阿黛尔')
+        var wf = new Star('王菲')
+        console.log(adele.sing());
+        console.log(wf.sing());
+        console.log(adele.sing === wf.sing);
+        // console.dir(Star);
+
+        // 3.❤一般情况下，公共属性定义在构造函数中，而公共方法定在在原型对象上
+    </script>
+</body>
+
+</html>

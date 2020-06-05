@@ -14,14 +14,14 @@
         class Star {
             constructor(name) {
                 that = this
-                console.log(this);
+                console.log(this); //输出：Star{} 输出的是实例对象
                 this.name = name
                 this.sing('Someone like you')
                 var btn = document.querySelector('button')
                 btn.onclick = this.sing;
             }
             sing(song) {
-                console.log(this); //输出：<button>按钮</button>   普通函数中的this指向的是他的调用者
+                console.log(this); //点击按钮，输出：<button>按钮</button>   普通函数中的this指向的是他的调用者
                 console.log(that.name + song); //通过that获取实例对象上的值
             }
         }
