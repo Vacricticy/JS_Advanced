@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Star {
+
+        }
+        Star.prototype.sing = function() {
+            console.log('sing a song');
+        };
+        // 1.类的实质是函数
+        console.log(typeof Star);
+        // 2.类同构造函数一样，拥有原型对象
+        console.log(Star.prototype);
+        //3.类同构造函数一样，其原型对象上拥有constructor属性，该属性指向了类（构造函数）
+        console.log(Star.prototype.constructor);
+        var adele = new Star();
+        //4.类的实例对象同构造函数的实例对象一样，拥有__proto__属性，该属性指向了类的原型对象（构造函数的原型对象）
+        console.log(adele.__proto__);
+
+
+        // 综上，ES6中的类其实是构造函数的语法糖，ES6中类的绝大多数功能都能通过ES5中的构造函数和原型对象实现
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(Array.prototype);
+        // 在内置对象的原型对象上扩展自己想要的方法
+        Array.prototype.sum = function() {
+            var sum = 0;
+            for (var i = 0; i < this.length; i++) {
+                sum += this[i]
+            }
+            return sum;
+        }
+        var arr = [1, 2, 3, 4, 5]
+        var arr2 = new Array(1, 2, 3, 4, 5, 6)
+        console.log(arr.sum());
+        console.log(arr2.sum());
+        console.log(Array.prototype);
+    </script>
+</body>
+
+</html>

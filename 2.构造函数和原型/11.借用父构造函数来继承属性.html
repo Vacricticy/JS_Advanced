@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 父构造函数
+        function Father(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        // 子构造函数
+        function Son(name, age, sex) {
+            // 通过call函数改变Father函数内部this的指向，使其指向Son构造函数创建的实例对象xiaoming
+            // 从而借用父构造函数的代码为实例对象赋值,实现了逻辑上的继承属性的关系
+            Father.call(this, name, age)
+            this.sex = sex;
+        }
+        var xiaoming = new Son('小明', 18, '男')
+        console.log(xiaoming);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES5数组新增的方法：forEach(),map(),filter(),some(),every()
+
+        // ------------1.forEach()方法遍历数组--------------
+        var arr = [1, 2, 3, 4, 5]
+        var sum = 0
+        arr.forEach(function(value, index, array) {
+            console.log(`值:${value}`);
+            console.log(`索引${index}`);
+            console.log(`原数组${array}`);
+            sum += value
+        })
+        console.log(sum);
+
+
+        // -------------2.filter()过滤数组------------------
+        var arr2 = new Array(22, 434, 54, 665, 78)
+        var newArr2 = arr2.filter(function(value, index, array) {
+            // 满足条件的每一个元素会被添加到一个新数组中，最后会返回新生成的数组
+            return value % 2 === 0
+        })
+        console.log(newArr2);
+
+        // ------------------3.some()方法--------------
+    </script>
+</body>
+
+</html>

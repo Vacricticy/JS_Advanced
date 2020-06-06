@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name) {
+            this.name = name
+        }
+        // Object.prototype.age = 30
+        // Star.prototype.age = 30
+        var adele = new Star('阿黛尔')
+            // adele.age = 30
+        console.log(adele.age);
+        console.log(adele.toString());
+
+        // 成员查找规则：1.依据原型链逐层向上查找 2.就近原则
+        // 第一层：实例对象；
+        // 第二层：构造函数的原型对象；
+        // 第三层：Object的原型对象
+    </script>
+</body>
+
+</html>

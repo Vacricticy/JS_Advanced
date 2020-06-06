@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name) {
+            // 1.构造函数中的this指向的是实例对象
+            this.name = name
+        }
+        var that;
+        Star.prototype.sing = function() {
+            that = this
+            console.log('sing a song');
+        }
+        var adele = new Star('阿黛尔')
+            // 2.只有调用了sing函数，才能确定原型对象中的this指向的是谁。若调用了，指向的也是实例对象
+        adele.sing()
+        console.log(adele == that);
+    </script>
+</body>
+
+</html>

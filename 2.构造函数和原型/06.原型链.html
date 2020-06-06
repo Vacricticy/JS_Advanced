@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name) {
+            this.name = name
+        }
+        Star.prototype = {
+            constructor: Star,
+            sing: function() {
+                console.log(this.name + 'sing a song');
+            }
+        }
+        var adele = new Star('阿黛尔')
+        console.log(Star.prototype);
+        // 构造函数的原型对象的__proto__指向了Object的原型对象
+        console.log(Star.prototype.__proto__ === Object.prototype); //true
+        console.log(Object.prototype);
+        // Object的原型对象的__proto__指向为null
+        console.log(Object.prototype.__proto__); //null
+
+
+        // 每一个对象都有一个__proto__属性。
+        // 原型链：(附件：原型链.jpg)
+        // 1.实例对象的__proto__指向了构造函数的原型对象
+        // 2.构造函数的原型对象的__proto__指向了Object的原型对象
+        // 3.Object的原型对象的__proto__指向为null
+    </script>
+</body>
+
+</html>

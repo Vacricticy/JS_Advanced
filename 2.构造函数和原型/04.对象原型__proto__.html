@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name) {
+            this.name = name;
+        }
+        Star.prototype.sing = function() {
+            console.log(this.name + 'sing a song');
+        }
+        var adele = new Star("阿黛尔")
+        var wf = new Star('王菲')
+        console.log(adele);
+        adele.sing()
+        console.log(adele.__proto__ === Star.prototype);
+        console.log(adele.__proto__ === wf.__proto__);
+        // 系统会为每一个对象添加一个__proto__属性， 该属性指向的是构造函数的原型对象
+        // 调用对象方法时的查找规则：
+        // 1.先去对象本身查看是否存在该函数
+        // 2.如果不存在则去__proto__属性上查找，即构造函数的原型对象身上
+
+        // 对象原型与原型对象：
+        // 原型对象是指 构造函数的原型对象Star.prototype
+        // 对象原型是指 创建出来的每一个对象身上，都有一个__proto__属性，该属性被称为对象原型
+    </script>
+</body>
+
+</html>
