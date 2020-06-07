@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: 'xiaoming',
+        };
+        // 原始的添加属性的方式
+        obj.age = 19
+
+        //注意sex需要加引号，若sex存在，则覆盖；不存在，则添加。
+        Object.defineProperty(obj, 'sex', {
+            value: '男',
+            writable: true, //是否可以重写，默认值为false
+            enumerable: true, //是否可以通过Object.keys()遍历，默认为false
+            configurable: false //是否可以删除该属性以及修改enumerable和configurable，默认为false
+        })
+        obj.sex = '女'
+        delete obj.sex; //若configurable为false，则删除是无效的
+        //若configurable为false，则下面的代码会报错
+        // Object.defineProperty(obj, 'sex', {
+        //     enumerable: false,
+        //     configurable: true
+        // });
+        console.log(obj);
+        console.log(Object.keys(obj));
+
+        Object.defineProperty(obj, 'age', {
+            value: 22,
+            // writable: false
+        })
+        console.log(obj);
+        obj.age = 23
+        console.log(obj);
+        console.log(Object.keys(obj));
+        delete obj.age
+        console.log(obj);
+        // 综述： 
+        // 1.直接通过对象.属性 方式创建的属性，其值是可以更改，可以重写，可以被遍历出，可以被删除的。
+        // 2.通过Object.defineProperty()创建的属性默认是更改无效，重写无效，无法被遍历，无法被删除的。
+    </script>
+</body>
+
+</html>

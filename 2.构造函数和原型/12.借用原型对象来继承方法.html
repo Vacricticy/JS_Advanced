@@ -10,7 +10,9 @@
 <body>
     <script>
         function Father() {
-
+            this.run = function() {
+                console.log('父亲喜欢跑步');
+            }
         }
         Father.prototype.work = function() {
             console.log('父亲要工作');
@@ -22,7 +24,7 @@
         // 错误方式，该代码会导致子原型对象指向父原型对象的地址，如果更改子原型对象，则实际更改的是父原型对象。
         // Son.prototype = Father.prototype
 
-        // 使子原型对象指向一个父实例对象，该父实例对象可以通过__proto__来获取父原型对象上的方法，即可实现继承方法的作用
+        // 使子原型对象指向一个父实例对象，便拥有了父构造函数的方法以及父构造函数的原型对象上的方法
         Son.prototype = new Father()
             // 小问题：上述直接通过对象覆盖了子原型对象，导致了constructor指向的构造函数的改变
             // console.log(Son.prototype.constructor);
@@ -41,11 +43,17 @@
 
         // 验证是否实现了继承
         xiaoming.work()
+        xiaoming.run()
 
         // 整个过程的描述：
-        // 1.先在xiaoming对象上找work()
-        // 2.在xiaoming的__proto__上找work(),即在new出来的父实例对象上找
-        // 3.在父实例对象的__proto__上找，即父原型对象，然后找到了work()!
+        // 1.先在xiaoming对象上找work()和run()
+        // 2.在xiaoming的__proto__,,即父实例对象身上，找work()和run()
+        // 3.在父实例对象身上以及父构造函数的原型对象上找，然后找到了work()和run()
+
+        // 通过构造函数和原型对象实现继承的原理：（充分利用了原型链）
+        // 1.子对象在找不到方法时会去原型对象上找方法，
+        // 2.让子构造函数的原型对象指向父实例对象，则相当于子对象会去父实例对象上找方法。
+        // 3.若父实例对象或其构造函数的原型对象上有这个方法，则说明实现了继承
     </script>
 </body>
 

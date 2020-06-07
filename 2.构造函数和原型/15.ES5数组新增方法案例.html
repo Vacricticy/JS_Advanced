@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 400px;
+            border: 1px solid #000;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        
+        td,
+        th {
+            border: 1px solid #000;
+            text-align: center;
+        }
+        
+        input {
+            width: 50px;
+        }
+        
+        .search {
+            width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        按照价格查询: <input type="text" class="start"> - <input type="text" class="end"> <button class="search-price">搜索</button> 按照商品名称查询: <input type="text" class="product"> <button class="search-pro">查询</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+    </table>
+    <script>
+        // 利用新增数组方法操作数据
+        var data = [{
+            id: 1,
+            pname: '小米',
+            price: 3999
+        }, {
+            id: 2,
+            pname: 'oppo',
+            price: 999
+        }, {
+            id: 3,
+            pname: '荣耀',
+            price: 1299
+        }, {
+            id: 4,
+            pname: '华为',
+            price: 1999
+        }, ];
+
+        // 获取表格元素
+        var tbody = document.querySelector('tbody')
+        var button = document.querySelector('.search-price')
+        var min = document.querySelector('.start')
+        var max = document.querySelector('.end')
+        var product = document.querySelector('.product')
+        var proBtn = document.querySelector('.search-pro')
+
+        function setData(data) {
+            // 先清空表格的元素
+            tbody.innerHTML = ''
+                // 通过forEach循环添加表格元素
+            data.forEach(function(value) {
+                var tr = document.createElement('tr')
+                tr.innerHTML = `<td>${value.id}</td><td>${value.pname}</td><td>${value.price}</td>`
+                tbody.appendChild(tr)
+            })
+        }
+        // 1.渲染初始数据
+        setData(data)
+
+        // 2.价格区间查找
+        // 对于查找元素这种业务，直接使用filter方法
+        button.addEventListener('click', function() {
+            var newData = data.filter(function(value) {
+                return value.price >= min.value && value.price <= max.value
+            })
+            console.log(newData);
+            setData(newData)
+        });
+        // 3.商品名称查找
+        // ♥如果只需要‘找出’满足条件的一个元素，使用some效率更高。
+        // 若数据特别多，使用filter会遍历所有的元素,效率不高。
+        // 但使用some要想获取满足条件的元素，需要单独处理一下
+        proBtn.addEventListener('click', function() {
+            var arr = []
+            data.some(function(value) {
+                if (value.pname === product.value) {
+                    arr.push(value)
+                        // 满足条件，返回true，遍历结束
+                    return true
+                }
+            })
+            setData(arr)
+        })
+
+        // dom知识：
+        // 获取dom元素后，才能通过.value获取值？？？？
+        // 绑定事件：.addEventListener('click', function() {})
+        // 为表格添加元素：tr=`<td></td>`   tbody.appendChild(tr)
+    </script>
+</body>
+
+</html>

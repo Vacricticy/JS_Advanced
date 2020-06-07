@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'xiaoming',
+            age: 12,
+            sex: '男'
+        }
+        console.log(Object.keys(obj)); //['name','age','sex']
+        // 通过Object.keys可以获取一个对象含有的属性的个数
+        console.log(Object.keys(obj).length);
+
+        var arr = ['apple', 'banana', 'orange'];
+        // Object.keys只返回可枚举的属性，Object.getOwnPropertyNames还会返回不可枚举的属性
+        console.log(Object.keys(arr).length); //3
+        console.log(Object.getOwnPropertyNames(arr)); //["0", "1", "2", "length"]
+        console.log(Object.getOwnPropertyNames(arr).length); //4
+
+
+        // 问题：什么是可枚举属性和不可枚举属性，再基本的数据类型中怎么体现
+    </script>
+</body>
+
+</html>

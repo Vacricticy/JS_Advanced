@@ -17,7 +17,7 @@
         // }
 
         // 2.若为构造函数的原型对象赋值为一个新的对象，则会覆盖掉原来的constructor属性
-        // 3.为了能查看到创建的对象所依赖的构造函数，必须手动为原型对象添加constructor属性
+        // 3.为了能查看到原型对象所依赖的构造函数，必须手动为原型对象添加constructor属性
         Star.prototype = {
             constructor: Star,
             sing: function() {
@@ -26,11 +26,11 @@
         }
         var adele = new Star('阿黛尔')
         console.log(Star.prototype);
-        // 1.默认情况下构造函数的原型对象上都有一个constructor属性，该属性表明了对象是根据哪一个构造函数创建出来的。
+        // 1.默认情况下构造函数的原型对象上都有一个constructor属性，该属性指向了原构造函数
         console.log(adele.__proto__.constructor);
 
 
-        // 总述：构造函数、原型对象、实例之间的三角关系
+        // 总述：♥构造函数、原型对象、实例之间的三角关系
         // 1.构造函数通过prototype属性指向原型对象
         // 2.原型对象上的constructor属性又指向了构造函数
         // 3.实例对象通过__proto__属性指向了原型对象，还可以通过__prototype.constructor指向构造函数
