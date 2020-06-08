@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        // 1.严格模式下变量必须先声明再使用·
+        // num = 10;
+        // console.log(num);
+
+        // 2.不能删除已经声明的变量
+        // var num2 = 11
+        // delete num2
+
+        // 3.全局作用域中的this指向的是window
+        // console.log(this);
+
+        // 4.❤但全局作用域中的函数中的this指向的是undefined
+        // function fn() {
+        //     console.log(this);
+        // }
+        // fn()  //undefined
+
+        //5.构造函数中的this:
+        // 严格模式下如果不加new调用，则会直接调用构造函数，此时里面的this为undefined，为undefined赋值会报错
+        // 使用new的话this指向的仍为实例对象
+
+        // function Star() {
+        //     this.name = 'adele'
+        // }
+        // Star()   
+        // console.log(window.name);
+
+        // 6.严格模式下定时器中的this指向的还是window
+        // setTimeout(function() {
+        //     console.log(this);
+        // }, 2000)
+
+        // 7.严格模式下函数不允许有重名的参数
+        // function fn(a, a) {
+        //     console.log(a + a);
+        // }
+        // fn(2, 3)
+
+        // 8.为了与ES6中的块级作用域接轨，ES5的严格模式不允许在非函数的代码块中声明函数
+        if (true) {
+            //在ES6中会报语法错误
+            function fun() {
+                console.log(1);
+            }
+            fun()
+        }
+        for (var i = 0; i < 5; i++) {
+            //在ES6中会报语法错误
+            function fun() {
+                console.log(1);
+            }
+            fun()
+        }
+
+        function func1() {
+            // 合法
+            function func2() {
+
+            }
+        }
+    </script>
+</body>
+
+</html>

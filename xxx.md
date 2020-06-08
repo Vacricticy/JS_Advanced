@@ -3,3 +3,6 @@
 ### ES5数组新增的方法：forEach()  filter()  map()  some()  every()
 
 ### ES5新增的其他方法  String.trim()  Object.defineProperty()
+
+### ES5中的严格模式在IE10以上的版本才支持，旧版本会忽略严格模式
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        var btn = document.querySelector('button');
+        // 6种函数中this的指向问题
+
+        // 1.普通函数
+        function fn() {
+            console.log('普通函数中的this指向的是：' + this); //[object Window]
+        }
+        fn()
+        fn.call();
+        // 2.对象的方法
+        var obj = {
+            fn2: function() {
+                console.log('对象方法中的this指向的是：' + this); //[object Object]
+            }
+        }
+        obj.fn2();
+        // 3.构造函数
+        function Func3() {
+            console.log('构造函数中的this指向的是：' + this); //[object Object]
+        }
+        var fn3 = new Func3();
+        // 4.绑定事件函数(通过点击按钮调用)
+        btn.onclick = function() {
+            console.log('绑定事件函数中的this指向的是：' + this); //[object HTMLButtonElement]
+        };
+        // 5.定时器函数
+        setInterval(function() {
+            console.log('定时器函数中的this指向的是：' + this); //[object Window]
+        }, 1000);
+        // 6.立即执行函数(立即执行函数是自动调用的)
+        (function() {
+            console.log('立即执行函数中的this指向的是：' + this); //[object Window]
+        })()
+    </script>
+</body>
+
+</html>

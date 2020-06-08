@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            console.log(this);
+        }
+        var o = {
+            name: 'timi'
+        }
+
+        fn()
+
+        // call方法作用一：调用函数
+        fn.call()
+
+        // call方法作用二：改变函数中this的指向
+        fn.call(o)
+
+        // call方法实际应用：实现属性的继承
+        function Father(name) {
+            this.name = name
+        }
+
+        function Son(name) {
+            Father.call(this, name)
+        }
+        var son = new Son('tom')
+        console.log(son);
+    </script>
+</body>
+
+</html>

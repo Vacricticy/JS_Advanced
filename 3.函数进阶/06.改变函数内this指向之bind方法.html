@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>获取验证码</button>
+    <script>
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+        }
+        var o = {
+            name: 'bengbengbadei'
+        }
+        fn();
+        // bind方法可以改变this的指向，但不能调用函数。但它会返回一个新的函数。
+        var newFn = fn.bind(o, 1, 2)
+        newFn()
+
+
+        // ❤ bind方法实际应用：点击获取验证码后，xx秒后可再次获取验证码
+        var btn = document.querySelector('button')
+        btn.onclick = function() {
+            console.log(this);
+            btn.innerHTML = '2秒后可再次获取'
+            btn.disabled = true
+
+            // 默认情况下定时器中的this指向的是window,此时需要修改this的指向
+            // 方法一：
+            // var that = this
+            // setTimeout(function() {
+            //     that.disabled = false
+            //     that.innerHTML = '获取验证码'
+            // }, 2000)
+            // 方法二： 通过bind方法修改定时器内部的this，使其指向Button按钮
+            // 使用bind而不使用call和apply的原因：使用bind不会调用原函数
+            setTimeout(function() {
+                this.disabled = false
+                this.innerHTML = "获取验证码"
+            }.bind(this), 2000)
+        }
+    </script>
+</body>
+
+</html>

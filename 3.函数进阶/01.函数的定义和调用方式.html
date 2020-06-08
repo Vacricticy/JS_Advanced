@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义函数的三种方式：
+        // 方式一：自定义函数（命名函数）
+        function fn1() {
+
+        }
+        // 方式二：函数表达式（匿名函数）
+        var fn2 = function() {};
+        // 方式三：利用new Function('形参1'，'形参2','函数体')  注意：三个参数都是字符串的形式
+        var fn3 = new Function('a', 'b', 'console.log(a+b)')
+        fn3(1, 3)
+
+        // ❤所有的函数都是Function构造函数的实例对象,都具有__proto__属性，该属性指向了Function构造函数的原型对象。原型对象上的constructor指向了Function构造函数
+        console.dir(fn2);
+        console.dir(fn3);
+        console.log(fn3 instanceof Object);
+        console.log(fn3.__proto__); // ƒ () { [native code] }  ？？？？？
+        console.log(fn3.__proto__constructor); // undefined
+    </script>
+</body>
+
+</html>

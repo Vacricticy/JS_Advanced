@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 严格模式：消除了一些不合理的地方，为未来的js版本做了铺垫，例如禁用了class等保留字做变量名 -->
+
+    <!-- 1.为整个script脚本开启严格模式 -->
+    <script>
+        'use strict';
+    </script>
+    <script>
+        // 立即执行函数
+        (function() {
+            'use strict';
+        })()
+    </script>
+
+    <!-- 2.为单个函数开启严格模式 -->
+    <script>
+        function fn1() {
+            'use strict';
+        }
+
+        function fn2() {
+
+        }
+    </script>
+</body>
+
+</html>

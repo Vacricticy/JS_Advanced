@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 6种函数的调用方式
+
+        // 1.普通函数
+        function fn() {
+            console.log('bengbengbadei1');
+        }
+        fn()
+        fn.call();
+        // 2.对象的方法
+        var obj = {
+            fn2: function() {
+                console.log('bengbengbadei2');
+            }
+        }
+        obj.fn2();
+        // 3.构造函数
+        function Func3() {
+
+        }
+        var fn3 = new Func3();
+        // 4.绑定事件函数(通过点击按钮调用)
+        // btn.onclick = function() {};
+        // 5.定时器函数
+        // setInterval(function(){},1000)
+        // 6.立即执行函数(立即执行函数是自动调用的)
+        (function() {
+            console.log('bengbengbadei4');
+        })()
+    </script>
+</body>
+
+</html>
