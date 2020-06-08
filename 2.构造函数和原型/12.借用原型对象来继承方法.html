@@ -25,9 +25,9 @@
         // Son.prototype = Father.prototype
 
         // 使子原型对象指向一个父实例对象，便拥有了父构造函数的方法以及父构造函数的原型对象上的方法
-        Son.prototype = new Father()
-            // 小问题：上述直接通过对象覆盖了子原型对象，导致了constructor指向的构造函数的改变
-            // console.log(Son.prototype.constructor);
+        Son.prototype = new Father();
+        // 小问题：上述直接通过对象覆盖了子原型对象，导致了constructor指向的构造函数的改变，需要单独为其赋值
+        // console.log(Son.prototype.constructor);
         Son.prototype.constructor = Son
 
 
@@ -53,7 +53,7 @@
         // 通过构造函数和原型对象实现继承的原理：（充分利用了原型链）
         // 1.子对象在找不到方法时会去原型对象上找方法，
         // 2.让子构造函数的原型对象指向父实例对象，则相当于子对象会去父实例对象上找方法。
-        // 3.若父实例对象或其构造函数的原型对象上有这个方法，则说明实现了继承
+        // 3.若父实例对象或其构造函数的原型对象上有这个方法，只要找到了方法则说明实现了继承
     </script>
 </body>
 

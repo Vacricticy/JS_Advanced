@@ -19,7 +19,7 @@
             console.log('sing a song');
         }
         var adele = new Star('阿黛尔')
-            // 2.只有调用了sing函数，才能确定构造函数中的this指向的是谁。若调用了，指向的才是对象
+            // 2.只有调用了sing函数，才能确定原型对象中的this指向的是谁。若调用了，指向的才是实例对象
         adele.sing()
         console.log(adele == that);
     </script>

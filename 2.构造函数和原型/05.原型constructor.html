@@ -26,13 +26,13 @@
         }
         var adele = new Star('阿黛尔')
         console.log(Star.prototype);
-        // 1.默认情况下构造函数的原型对象上都有一个constructor属性，该属性指向了原构造函数
+        // 1.默认情况下构造函数的原型对象上都有一个constructor属性，该属性指回了原构造函数
         console.log(adele.__proto__.constructor);
 
 
         // 总述：♥构造函数、原型对象、实例之间的三角关系
         // 1.构造函数通过prototype属性指向原型对象
-        // 2.原型对象上的constructor属性又指向了构造函数
+        // 2.原型对象上的constructor属性又指回了构造函数
         // 3.实例对象通过__proto__属性指向了原型对象，还可以通过__prototype.constructor指向构造函数
     </script>
 </body>

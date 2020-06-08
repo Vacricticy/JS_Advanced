@@ -90,7 +90,7 @@
         setData(data)
 
         // 2.价格区间查找
-        // 对于查找元素这种业务，直接使用filter方法
+        // 对于查找元素这种业务，直接使用filter过滤满足条件的元素
         button.addEventListener('click', function() {
             var newData = data.filter(function(value) {
                 return value.price >= min.value && value.price <= max.value
@@ -99,9 +99,9 @@
             setData(newData)
         });
         // 3.商品名称查找
-        // ♥如果只需要‘找出’满足条件的一个元素，使用some效率更高。
+        // ♥如果只需要‘找出’满足条件的一个元素，使用some效率更高。但使用some要想获取满足条件的元素，需要单独处理一下
         // 若数据特别多，使用filter会遍历所有的元素,效率不高。
-        // 但使用some要想获取满足条件的元素，需要单独处理一下
+        // 若使用forEach,在return后仍会继续遍历其他元素
         proBtn.addEventListener('click', function() {
             var arr = []
             data.some(function(value) {
