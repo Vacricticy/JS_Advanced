@@ -106,8 +106,8 @@
             var arr = []
             data.some(function(value) {
                 if (value.pname === product.value) {
-                    arr.push(value)
-                        // 满足条件，返回true，遍历结束
+                    arr.push(value);
+                    // 满足条件，返回true，遍历结束
                     return true
                 }
             })
@@ -115,7 +115,7 @@
         })
 
         // dom知识：
-        // 获取dom元素后，才能通过.value获取值？？？？
+        // 问题：获取dom元素后，才能通过.value获取值？？？？
         // 绑定事件：.addEventListener('click', function() {})
         // 为表格添加元素：tr=`<td></td>`   tbody.appendChild(tr)
     </script>

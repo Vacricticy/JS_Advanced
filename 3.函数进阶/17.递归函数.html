@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var i = 1
+
+        // function fn() {
+        //     console.log('time' + i);
+        //     i++
+        //     // 递归函数加退出条件,否则无效调用会不断的为对象分配内存，造成栈溢出
+        //     if (i > 6) {
+        //         return
+        //     }
+        //     fn()
+        // }
+        // fn()
+
+        // 1.递归实现阶乘
+        // function fn(n) {
+        // // 关键点：第一项时返回1，不再继续递归调用
+        //     if (n == 1) {
+        //         return 1;
+        //     }
+        //     return n * fn(n - 1)
+        // }
+        // console.log(fn(4));
+
+        // 2.递归实现斐波拉契数列1、1、2、3、5、8、13、21、34
+        // function fb(n) {
+        //     // 关键点，第一，二项时返回1，不再继续递归调用
+        //     if (n === 1 || n === 2) {
+        //         return 1
+        //     }
+        //     return fb(n - 1) + fb(n - 2)
+        // }
+        // console.log(fb(6));
+
+        // 3.递归实现嵌套数组的查找
+        data = [{
+            id: 1,
+            name: '1111',
+            children: [{
+                id: 11,
+                name: '1-1'
+            }, {
+                id: 12,
+                name: '1-2'
+            }]
+        }, {
+            id: 2,
+            name: '222'
+        }]
+
+        function getDataById(data, id) {
+            var o = {}
+            data.forEach(function(item) {
+                if (item.id === id) {
+
+                    // console.log(item);
+                    o = item
+                        // 关键点1：当在外层找不到id时，先判断是否存在children属性，若存在，再递归调用查询
+                } else if (item.children && item.children.length > 0) {
+                    // 关键点2：此处必须把再次调用的函数的返回值赋值给o，否则你无法接受到再次调用函数时返回的结果
+                    o = getDataById(item.children, id)
+                }
+            })
+            return o
+        }
+
+        console.log(getDataById(data, 2));
+        console.log(getDataById(data, 11));
+    </script>
+</body>
+
+</html>

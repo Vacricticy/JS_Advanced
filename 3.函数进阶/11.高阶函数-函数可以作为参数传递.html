@@ -23,7 +23,7 @@
             console.log(a + b);
             callback && callback()
         }
-        // 高阶函数中函数可以作为参数传递
+        // 高阶函数中的参数可以是函数
         fn(2, 5, function() {
             console.log("hello");
         });
@@ -38,6 +38,9 @@
                 $('div').css("backgroundColor", "orange")
             })
         })
+
+
+        // 高阶函数：1.传递的参数可以是函数 2.return的可以是参数
     </script>
 </body>
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.边界符^
+        // var reg1 = /^abc/
+        // console.log(reg1.test('abchij')); //true
+        // console.log(reg1.test('abbij')); //false
+
+        // 2.边界符$
+        // var reg2 = /abc$/
+        // console.log(reg2.test('abccabc')); //true
+        // console.log(reg2.test('abcabb')); //false
+
+        // ❤3.精确匹配边界符^加边界符$
+        // var reg3 = /^abc$/
+        // console.log(reg3.test('abc')); //true
+        // console.log(reg3.test('abcd')); //false
+
+        // 4.字符类[],只匹配其中一个字符
+        // var reg4 = /[abc]/
+        // console.log(reg4.test('amm')); //true
+        // console.log(reg4.test('b')); //true
+
+        // 5.必须为a,b,c中的一个字符
+        // var reg5 = /^[abc]$/
+        // console.log(reg5.test('ab')); //false
+        // console.log(reg5.test('a')); //true
+
+        // 6.范围符：-   应用：必须为26个小写的英文字母
+        // var reg6 = /[a-z]/
+        // console.log(reg6.test('A')); //false
+        // console.log(reg6.test('m')); //true
+
+        // ❤7.字符组合,每一个由范围符-连接起来的都可以被看成是一个字符组合，[]中多个字符组合之间可以任选一个
+        // var reg7 = /^[a-zA-Z0-9_-]$/
+        // console.log(reg7.test(7)); //true
+        // console.log(reg7.test('d')); //true
+        // console.log(reg7.test('D')); //true
+        // console.log(reg7.test('_')); //true
+        // console.log(reg7.test('-')); //true
+
+        // ❤8.中括号中的^为取反符，与边界符^不同，中括号中的^表示取反的意思
+        // var reg8 = /^[^a-zA-Z0-9_-]$/
+        // console.log(reg8.test(7)); //false
+        // console.log(reg8.test('d')); //false
+        // console.log(reg8.test('D')); //false
+        // console.log(reg8.test('_')); //false
+        // console.log(reg8.test('-')); //false
+        // console.log(reg8.test('!')); //true
+
+        // 9.量词符*,表示可以出现0次或多次
+        // var reg9 = /^a*$/
+        // console.log(reg9.test('aaa')); //true
+        // console.log(reg9.test('')); //true
+
+        // 10.量词符+,表示可以出现1次或多次
+        // var reg10 = /^a+$/
+        // console.log(reg10.test('aaa')); //true
+        // console.log(reg10.test('')); //false
+
+        // 11.量词符?,表示可以出现0次或1次
+        // var reg11 = /^a?$/
+        // console.log(reg11.test('aaa')); //false
+        // console.log(reg11.test('')); //true
+
+        // 12.量词符{3},必须重复3次
+        // var reg12 = /^a{3}$/
+        // console.log(reg12.test('aaaa')); //false
+        // console.log(reg12.test('aaa')); //true
+
+        // 13.量词符{3,}，必须重复3次以上
+        // var reg13 = /a{3,}/
+        // console.log(reg13.test('aa')); //false
+        // console.log(reg13.test('aaa')); //true
+        // console.log(reg13.test('asaaa')); //true
+
+        // 14.量词符{3,5}，必须重复3到5次
+        var reg14 = /a{3,5}/
+        console.log(reg14.test('aaaavc')); //true
+    </script>
+</body>
+
+</html>

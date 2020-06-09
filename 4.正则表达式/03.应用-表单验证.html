@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /^[a-zA-Z0-9_-]{6,16}$/
+        console.log(reg.test('abcdef_100')); //true
+        console.log(reg.test('abcdef!100')); //false
+        console.log(reg.test('abcd')); //false
+    </script>
+</body>
+
+</html>

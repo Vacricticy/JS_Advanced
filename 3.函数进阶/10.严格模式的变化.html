@@ -28,8 +28,8 @@
         // fn()  //undefined
 
         //5.构造函数中的this:
-        // 严格模式下如果不加new调用，则会直接调用构造函数，此时里面的this为undefined，为undefined赋值会报错
-        // 使用new的话this指向的仍为实例对象
+        // 严格模式下如果不加new调用，则会直接调用构造函数，此时里面的this为undefined，此时若为undefined赋值会报错
+        // 使用new的话this指向的就是实例对象
 
         // function Star() {
         //     this.name = 'adele'
@@ -48,7 +48,7 @@
         // }
         // fn(2, 3)
 
-        // 8.为了与ES6中的块级作用域接轨，ES5的严格模式不允许在非函数的代码块中声明函数
+        // 8.为了与ES6中的块级作用域‘接轨’，ES5的严格模式不允许在非函数的代码块中声明函数
         if (true) {
             //在ES6中会报语法错误
             function fun() {

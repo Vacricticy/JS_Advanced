@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 闭包应用3：立即执行函数+return函数
+
+        // 注意：这里只是为了演示闭包在实际中可以通过什么方式使用，这里的业务其实不应该用闭包来实现
+
+        // 业务描述：打车起步价为10元（3公里内），超出一公里增加5元，若堵车，需添加10元堵车费
+        var car = (function() {
+            var start = 10;
+            var total = 0;
+            return {
+                price: function(n) {
+                    if (n <= 3) {
+                        total = start
+                    } else {
+                        total = start + (n - 3) * 5
+                    }
+                    return total
+                },
+                yd: function(flag) {
+                    return flag ? total + 10 : total
+                }
+            }
+        })()
+        console.log(car.price(5)); //20
+        console.log(car.yd(true)); //30
+        console.log(car.price(6)); //25
+        console.log(car.yd(false)); //25
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 思考题 1： 有闭包吗？没有
+
+        // var name = "The Window";
+        // var object = {
+        //     name: "My Object",
+        //     getNameFunc: function() {
+        //         return function() {
+        //             console.log(this); //window
+        //             return this.name;
+        //         };
+        //     }
+        // };
+
+        // console.log(object.getNameFunc()()) //"The Window"
+
+        // 思考题 2：有闭包吗？有
+
+        var name = "The Window";　　
+        var object = {　　　　
+            name: "My Object",
+            getNameFunc: function() {
+                // 这里的this指向的是调用者object
+                var that = this;
+                return function() {
+                    console.log(that);
+                    return that.name;
+                };
+            }
+        };
+        console.log(object.getNameFunc()()) //"My Object"
+    </script>
+</body>
+
+</html>

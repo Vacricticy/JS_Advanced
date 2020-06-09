@@ -4,7 +4,7 @@ call,apply,bind
 都能改变函数中this的指向
 
 不同点：
-1.call和bind传递的参数是arg1,arg2的形式，而apply传递的数组的形式
+1.call和bind传递的参数是arg1,arg2的形式，而apply传递的是数组的形式
 2.call和apply会立即调用函数，而bind不会调用函数，只会返回一个新的函数
 
 实际应用场景：

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>苹果</li>
+            <li>樱桃</li>
+            <li>水蜜桃</li>
+            <li>榴莲</li>
+        </ul>
+    </div>
+    <script>
+        // 闭包应用1：立即执行函数+点击事件
+
+
+        var lis = document.querySelectorAll('li')
+            // lis.forEach((value, index) => {
+            //     value.index = index
+            //     value.onclick = function() {
+            //         console.log(this.index);
+            //     }
+            // })
+
+        // 通过闭包的形式打印li的索引
+        lis.forEach((value, index) => {
+            // 向立即执行函数传递index属性
+            // 立即执行函数也称为小闭包，因为立即执行函数中任何一个函数都可以使用其中的成员变量                
+            (function(index) {
+                // 绑定的事件中访问的this是立即执行函数中的this                
+                value.onclick = function() {
+                    console.log(index);
+                }
+            })(index)
+        });
+        // 由于存在闭包关系，index变量的内存不会被立即释放，这样的变量多了可能导致内存泄漏。
+
+        // 面试问题：如何通过闭包实现点击li打印对应的索引号的功能
+        // 实现：通过立即执行函数实现闭包的功能
+    </script>
+</body>
+
+</html>

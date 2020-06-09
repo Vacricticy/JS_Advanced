@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 正则表达式的创建：
+        // 方法一：通过RegExp构造函数创建
+        // var regExp = new RegExp(/123/)
+
+        // 方法二：字面量
+        var regExp = /123/
+
+        // 正则表达式验证方法： 正则表达式对象.test()
+        console.log(regExp.test(123)); //true
+        console.log(regExp.test('123')); //true
+        console.log(regExp.test(61234)); //true
+        console.log(regExp.test(343)); //false
+    </script>
+</body>
+
+</html>
