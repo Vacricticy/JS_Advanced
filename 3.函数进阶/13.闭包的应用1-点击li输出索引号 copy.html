@@ -17,8 +17,7 @@
         </ul>
     </div>
     <script>
-        // 闭包应用1：立即执行函数+点击事件
-
+        // 闭包应用1：立即执行函数+点击事件（点击事件中会用到立即执行函数中的变量）
 
         var lis = document.querySelectorAll('li')
             // lis.forEach((value, index) => {
@@ -33,7 +32,7 @@
             // 向立即执行函数传递index属性
             // 立即执行函数也称为小闭包，因为立即执行函数中任何一个函数都可以使用其中的成员变量                
             (function(index) {
-                // 绑定的事件中访问的this是立即执行函数中的this                
+                // 绑定的事件中访问的index是立即执行函数中的index              
                 value.onclick = function() {
                     console.log(index);
                 }

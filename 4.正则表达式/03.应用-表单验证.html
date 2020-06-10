@@ -5,14 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .right {
+            color: green;
+        }
+        
+        .wrong {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
+    <div>
+        <input type="text" class="uname"><span>请输入用户名</span>
+    </div>
     <script>
+        // 字符数必须为6到16位，且每个字符必须满足a-zA-Z0-9_-
         var reg = /^[a-zA-Z0-9_-]{6,16}$/
-        console.log(reg.test('abcdef_100')); //true
-        console.log(reg.test('abcdef!100')); //false
-        console.log(reg.test('abcd')); //false
+            // console.log(reg.test('abcdef_100')); //true
+            // console.log(reg.test('abcdef!100')); //false
+            // console.log(reg.test('abcd')); //false
+
+        var input = document.querySelector('.uname')
+        var span = document.querySelector('span')
+        input.onblur = function() {
+            if (reg.test(this.value)) {
+                span.className = "right"
+                span.innerHTML = '√'
+            } else {
+                span.className = "wrong"
+                span.innerHTML = '请输入6~16位的字符，_或-'
+            }
+        }
     </script>
 </body>
 

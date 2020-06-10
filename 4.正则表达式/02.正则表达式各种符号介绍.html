@@ -19,12 +19,12 @@
         // console.log(reg2.test('abccabc')); //true
         // console.log(reg2.test('abcabb')); //false
 
-        // ❤3.精确匹配边界符^加边界符$
+        // ❤3.精确匹配：边界符^加边界符$
         // var reg3 = /^abc$/
         // console.log(reg3.test('abc')); //true
         // console.log(reg3.test('abcd')); //false
 
-        // 4.字符类[],只匹配其中一个字符
+        // 4.字符类[],多选一
         // var reg4 = /[abc]/
         // console.log(reg4.test('amm')); //true
         // console.log(reg4.test('b')); //true
@@ -80,11 +80,31 @@
         // var reg13 = /a{3,}/
         // console.log(reg13.test('aa')); //false
         // console.log(reg13.test('aaa')); //true
-        // console.log(reg13.test('asaaa')); //true
+        // console.log(reg13.test('asaa')); //false
 
         // 14.量词符{3,5}，必须重复3到5次
-        var reg14 = /a{3,5}/
-        console.log(reg14.test('aaaavc')); //true
+        // var reg14 = /a{3,5}/
+        // console.log(reg14.test('aaaavc')); //true
+
+        // ❤15.小括号表示优先级
+        // var reg15 = /^(abc){2}$/
+        // console.log(reg15.test('abcabc')); //true
+        // console.log(reg15.test('abcc')); //false
+
+        // var reg151 = /^abc{2}$/
+        // console.log(reg151.test('abcabc')); //false
+        // console.log(reg151.test('abcc')); //true
+
+        // 16.预定义类：\d表示0-9
+        // var reg16 = /\d{3}/
+        // console.log(reg16.test('512')); //true
+        // console.log(reg16.test('5-2')); //false
+
+        // 17.或：|
+        var reg17 = /^\d{3}|abc$/
+        console.log(reg17.test('512')); //true
+        console.log(reg17.test('5-2')); //false
+        console.log(reg17.test('abc')); //true
     </script>
 </body>
 

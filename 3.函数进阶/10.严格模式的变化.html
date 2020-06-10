@@ -50,14 +50,14 @@
 
         // 8.为了与ES6中的块级作用域‘接轨’，ES5的严格模式不允许在非函数的代码块中声明函数
         if (true) {
-            //在ES6中会报语法错误
+            //会报错
             function fun() {
                 console.log(1);
             }
             fun()
         }
         for (var i = 0; i < 5; i++) {
-            //在ES6中会报语法错误
+            //会报错
             function fun() {
                 console.log(1);
             }

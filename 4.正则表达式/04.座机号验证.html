@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 座机号： 010-12345678   0530-1234567
+        var reg = /^\d{3}-\d{8}|\d{4}-\d{7}$/
+        console.log(reg.test('010-12345678')); //true
+        console.log(reg.test('0101-12345678')); //false
+    </script>
+</body>
+
+</html>

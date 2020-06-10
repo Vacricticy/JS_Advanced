@@ -18,6 +18,8 @@
 
         // 1.直接赋值相当于地址的引用
         // var obj2 = obj1;
+        // obj2.name = 'jim'
+        // console.log(obj1.name); //jim
         // console.log(obj1 === obj2); //true
 
 
@@ -37,37 +39,38 @@
         // console.log(obj1); //obj1.msg.age的值也会变成30，说明引用的同一块地址
 
 
-        var obj = {
-            name: 'tim',
-            color: ['white', 'black'],
-            size: {
-                content: 'small'
-            }
-        };
+
         // 深拷贝：每一层的数据都会被拷贝，开辟的都是新的空间。
+        // var obj = {
+        //     name: 'tim',
+        //     color: ['white', 'black'],
+        //     size: {
+        //         content: 'small'
+        //     }
+        // };
         // 以下为通过函数递归的方式实现深拷贝
-        function deepCopy(newObj, oldObj) {
-            for (k in oldObj) {
-                // 判断是不是数组
-                if (oldObj[k] instanceof Array) {
-                    newObj[k] = []
-                    deepCopy(newObj[k], oldObj[k]);
-                    // 判断是不是对象
-                    // 注意：需要先判断是不是数组，因为数组也属于对象
-                } else if (oldObj[k] instanceof Object) {
-                    newObj[k] = {}
-                    deepCopy(newObj[k], oldObj[k])
-                } else {
-                    newObj[k] = oldObj[k]
-                }
-            }
-        }
-        var obj2 = {}
-        deepCopy(obj2, obj)
-        console.log(obj2);
-        obj2.color[0] = 'yellow' //深拷贝，不会改变原来的值
-        console.log(obj2);
-        console.log(obj);
+        // function deepCopy(newObj, oldObj) {
+        //     for (k in oldObj) {
+        //         // 判断是不是数组
+        //         if (oldObj[k] instanceof Array) {
+        //             newObj[k] = []
+        //             deepCopy(newObj[k], oldObj[k]);
+        //             // 判断是不是对象
+        //             // 注意：需要先判断是不是数组，因为数组也属于对象
+        //         } else if (oldObj[k] instanceof Object) {
+        //             newObj[k] = {}
+        //             deepCopy(newObj[k], oldObj[k])
+        //         } else {
+        //             newObj[k] = oldObj[k]
+        //         }
+        //     }
+        // }
+        // var obj2 = {}
+        // deepCopy(obj2, obj)
+        // console.log(obj2);
+        // obj2.color[0] = 'yellow' //深拷贝，不会改变原来的值
+        // console.log(obj2);
+        // console.log(obj);
     </script>
 </body>
 
