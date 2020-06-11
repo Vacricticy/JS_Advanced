@@ -18,7 +18,7 @@
                 this.name = name
                 this.sing('Someone like you')
                 var btn = document.querySelector('button')
-                btn.onclick = this.sing;
+                btn.onclick = this.sing.bind(btn, 'hello');
             }
             sing(song) {
                 console.log(this); //点击按钮，输出：<button>按钮</button>   普通函数中的this指向的是他的调用者
@@ -31,7 +31,7 @@
 
 
         // es6中类没有变量提升，必须先定义类，再创建实例对象
-        // 类中的共有属性和方法在访问时必须加this
+        // ♥ 类中的共有属性和方法在访问时必须加this
 
         // 问题：js中哪些元素有变量提升
     </script>

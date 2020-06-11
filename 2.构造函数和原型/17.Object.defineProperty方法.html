@@ -16,6 +16,7 @@
         // 原始的添加属性的方式
         obj.age = 19
 
+        // 通过Object.defineProperty添加属性
         //注意sex需要加引号，若sex存在，则覆盖；不存在，则添加。
         Object.defineProperty(obj, 'sex', {
             value: '男',
@@ -44,8 +45,8 @@
         delete obj.age
         console.log(obj);
         // 总结： 
-        // 1.直接通过对象.属性 方式创建的属性，其值可以更改，可以重写，可以被遍历出，可以被删除。
-        // 2.通过Object.defineProperty()创建的属性默认是更改无效，重写无效，无法被遍历，无法被删除的。
+        // 1.直接通过对象.属性 方式创建的属性，其值可以被重写，可以被遍历出，可以被删除。
+        // 2.通过Object.defineProperty()创建的属性默认是重写无效，无法被遍历，无法被删除的。
     </script>
 </body>
 
