@@ -23,7 +23,7 @@
         var btn = document.querySelector('button')
         var div = document.querySelector('div')
         btn.onclick = function() {
-            div.innerHTML = text.value.replace(/fuck|激情/g, '**');
+            div.innerHTML = text.value.replace(/fuck|激情/gi, '**');
         }
     </script>
 </body>
