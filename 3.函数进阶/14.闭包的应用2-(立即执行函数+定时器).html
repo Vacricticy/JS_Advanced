@@ -17,7 +17,8 @@
         </ul>
     </div>
     <script>
-        // ❤闭包应用2：立即执行函数+定时器（定时器中会用到立即执行函数中的变量）
+        // ❤闭包应用2：点击li标签2秒后打印出对应的索引值
+        // 原理：立即执行函数+定时器（在定时器中想要使用的变量可以通过立即执行函数获取）
 
         var lis = document.querySelectorAll('li')
 
@@ -28,6 +29,7 @@
         for (var i = 0; i < lis.length; i++) {
             (function(i) {
                 setTimeout(function() {
+                    // 由于处在闭包函数中，此时的i指向的是立即执行函数的i值
                     console.log(lis[i].innerHTML);
                 }, 2000)
             })(i)

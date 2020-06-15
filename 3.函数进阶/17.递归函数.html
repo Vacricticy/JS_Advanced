@@ -60,11 +60,10 @@
 
         function getDataById(data, id) {
             var o = {}
-            data.forEach(function(item) {
+            data.some(function(item) {
                 if (item.id === id) {
-
-                    // console.log(item);
                     o = item;
+                    return true;
                     // 关键点1：当在外层找不到id时，先判断是否存在children属性，若存在，再递归调用查询
                 } else if (item.children && item.children.length > 0) {
                     // 关键点2：此处必须把再次调用的函数的返回值赋值给o，否则你无法接受到再次调用函数时返回的结果
