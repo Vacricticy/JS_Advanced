@@ -49,7 +49,7 @@
         </tbody>
     </table>
     <script>
-        // 利用新增数组方法操作数据
+        // 利用新增的数组方法操作数据
         var data = [{
             id: 1,
             pname: '小米',
@@ -99,7 +99,7 @@
             setData(newData)
         });
         // 3.商品名称查找
-        // ♥如果只需要‘找出’满足条件的一个元素，使用some效率更高。但使用some要想获取满足条件的元素，需要单独处理一下
+        // ♥如果只需要‘找出’满足条件的一个元素，使用some效率更高。但使用some要想获取满足条件的元素，需要单独将满足条件的值保存起来。
         // 若数据特别多，使用filter会遍历所有的元素,效率不高。
         // 若使用forEach,在return后仍会继续遍历其他元素
         proBtn.addEventListener('click', function() {
@@ -115,7 +115,6 @@
         })
 
         // dom知识：
-        // 问题：获取dom元素后，才能通过.value获取值？？？？
         // 绑定事件：.addEventListener('click', function() {})
         // 为表格添加元素：tr=`<td></td>`   tbody.appendChild(tr)
     </script>
