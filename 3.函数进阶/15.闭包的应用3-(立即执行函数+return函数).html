@@ -15,6 +15,28 @@
         // 注意：这里只是为了演示闭包在实际中可以通过什么方式使用，这里的业务其实不应该用闭包来实现
 
         // 业务描述：打车起步价为10元（3公里内），超出一公里增加5元，若堵车，需添加10元堵车费
+
+        // function car() {
+        //     var start = 10;
+        //     var total = 0;
+        //     return {
+        //         price: function(n) {
+        //             if (n <= 3) {
+        //                 total = start
+        //             } else {
+        //                 total = start + (n - 3) * 5
+        //             }
+        //             return total
+        //         },
+        //         yd: function(flag) {
+        //             return flag ? total + 10 : total
+        //         }
+        //     }
+        // }
+        // var car = car()
+
+
+
         var car = (function() {
             var start = 10;
             var total = 0;
