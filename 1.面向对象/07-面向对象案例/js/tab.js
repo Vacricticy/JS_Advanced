@@ -1,3 +1,8 @@
+// 要点1：点击标签栏可以切换相应样式
+// 要点2：双击标签栏显示输入框，可修改其中的数据
+// 要点3：点击添加按钮可添加标签栏
+// 要点4：点击X可以删除标签栏
+
 var that;
 class Tab {
     constructor(id) {
@@ -27,11 +32,6 @@ class Tab {
             this.spans[i].ondblclick = this.editTab;
             this.sections[i].ondblclick = this.editTab;
         }
-        // 为关闭按钮绑定关闭事件，简化为上诉操作
-        // for (var i = 0; i < this.guanbis.length; i++) {
-        //     this.guanbis[i].index = i;
-        //     this.guanbis[i].onclick = this.deleteTab;
-        // }
     };
     // 重新获取lis和sections
     updateNode() {
@@ -42,7 +42,7 @@ class Tab {
     };
     // 切换功能
     toggleTab() {
-        // 该函数的调用者为li,所以函数内部的this指向的都是li元素，clearClass函数是类的公共函数，所有只能通过that调用
+        //clearClass函数是类的公共函数，所有只能通过that调用
         that.clearClass();
         // 该函数的调用者为li,所以函数内部的this指向的都是li元素，所有可以通过this.index获取到值
         console.log("tab" + this.index);
@@ -73,7 +73,7 @@ class Tab {
     };
     // 删除功能
     deleteTab(e) {
-        // ❤由于父元素绑定了切换事件，所有应该阻止冒泡
+        // ❤由于父元素绑定了点击切换事件，所有应该阻止点击时冒泡
         e.stopPropagation();
         console.log("delete" + this.index);
         var index = this.index;
@@ -82,14 +82,14 @@ class Tab {
         that.sections[index].remove();
         that.guanbis[index].remove();
 
-        // 若删除的是当前元素，则if判断为空，然后继续后面的操作，会自动切换至上一个元素
-        // 若删除的不是当前元素，则if判断为真，则不会切换至上一个元素
+        // 若删除的是当前元素，则conactive样式已经不存在，if判断为空，然后继续后面的操作，即自动切换至上一个元素
+        // 若删除的不是当前元素，即conactive样式还是存在的，if判断为真，此时不会切换至上一个元素
         if (document.querySelector(".conactive")) {
             that.init();
             return;
         }
 
-        // ❤若删除的是第一个元素，则会切换至第二个元素，且只有第二个元素存在时，才进行操作
+        // ❤若删除的是第一个元素，则会切换至第二个元素，且只有第二个元素存在时，才进行此操作
         // ❤若删除的不是第一个元素，则会选择上一个元素
         index === 0 ?
             that.lis[1] && that.lis[1].click() :
@@ -139,7 +139,7 @@ var tab = new Tab("#tab");
 // 绑定双击事件： .ondblclick
 // 在ul的最后一个元素的后面添加标签：ul.insertAdjacentHTML("beforeend", newTab); 其他取值：beforstart,afterstart,afterend
 // 阻止冒泡：e.stopPropagation()
-// 删除元素: .remove()
+// 删除自身元素: .remove()
 // 双击禁止选中文字：window.getSelection ?window.getSelection().removeAllRanges() :document.selection.empty();
 // 选中输入框的文字：input.select()
 // 绑定失焦事件：input.onblur=function(){}

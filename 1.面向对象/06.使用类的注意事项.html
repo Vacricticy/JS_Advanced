@@ -21,7 +21,7 @@
                 btn.onclick = this.sing.bind(btn, 'hello');
             }
             sing(song) {
-                console.log(this); //点击按钮，输出：<button>按钮</button>   普通函数中的this指向的是他的调用者
+                console.log(this);
                 console.log(that.name + song); //通过that获取实例对象上的值
             }
         }

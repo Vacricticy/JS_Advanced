@@ -78,8 +78,8 @@
 
         function setData(data) {
             // 先清空表格的元素
-            tbody.innerHTML = ''
-                // 通过forEach循环添加表格元素
+            tbody.innerHTML = '';
+            // 通过forEach循环添加表格元素
             data.forEach(function(value) {
                 var tr = document.createElement('tr')
                 tr.innerHTML = `<td>${value.id}</td><td>${value.pname}</td><td>${value.price}</td>`
@@ -99,7 +99,7 @@
             setData(newData)
         });
         // 3.商品名称查找
-        // ♥如果只需要‘找出’满足条件的一个元素，使用some效率更高。但使用some要想获取满足条件的元素，需要单独将满足条件的值保存起来。
+        // ♥如果只需要‘找出’满足条件的‘一个’元素，使用some效率更高。但使用some要想获取满足条件的元素，需要单独将满足条件的值保存起来。
         // 若数据特别多，使用filter会遍历所有的元素,效率不高。
         // 若使用forEach,在return后仍会继续遍历其他元素
         proBtn.addEventListener('click', function() {

@@ -10,7 +10,7 @@
 <body>
     <script>
         console.log(Array.prototype);
-        // 在内置对象的原型对象上扩展自己想要的方法
+        // 在内置对象构造函数的原型对象上扩展自己想要的方法
         Array.prototype.sum = function() {
             var sum = 0;
             for (var i = 0; i < this.length; i++) {

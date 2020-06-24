@@ -29,11 +29,12 @@
 
     class Father {
         constructor(x, y) {
-                this.x = x
-                this.y = y
-            }
-            // 父类中的this指向的是父类构造函数创建的实例对象
-            // -此时，子类若想调用父类的方法，则需要通过super调用父类的构造函数将其值传入父类中。
+            this.x = x
+            this.y = y
+        };
+        // 父类中的this指向的是父类构造函数创建的实例对象        
+        // 因为父类中的函数所访问的变量是在父类的实例对象身上去找的，
+        // 所以子类若想在调用的父类的方法中使用自身的变量，则需要通过super调用父类构造函数将其值传入父类中。
         sum() {
             console.log(this.x + this.y);
         }
@@ -50,8 +51,9 @@
     son.sum()
     son2.sum()
 
-    // 报错：
+
+    // 可能出现的报错：
     // ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
-    // 原因：
-    // 在子类访问this或在子类的构造函数返回实例对象前，必须调用super父类构造函数
+    // 翻译： 当在访问this或在子构造函数return之前， 必须在子构造函数中先调用super构造函数。
+    // 解释：在子类访问this或在子类的构造函数返回实例对象前，必须调用super父类构造函数
 </script>

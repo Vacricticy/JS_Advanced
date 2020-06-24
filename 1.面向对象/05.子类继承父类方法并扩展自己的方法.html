@@ -24,16 +24,15 @@
     }
     class Son extends Father {
         constructor(x, y) {
-            // super的调用必须位于子类使用this之前？？？？？why????
-            super(x, y)
-                // this.x = x
-                // this.y = y
+            super(x, y);
+            // this.x = x
+            // this.y = y
         }
         subtract() {
             console.log(this.x - this.y);
         }
     }
     var son = new Son(4, 5)
-    son.subtract()
-    son.sum()
+    son.subtract() //-1
+    son.sum() //9
 </script>

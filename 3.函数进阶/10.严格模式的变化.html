@@ -28,14 +28,13 @@
         // fn()  //undefined
 
         //5.构造函数中的this:
-        // 严格模式下如果不加new调用，则会直接调用构造函数，此时里面的this为undefined，此时若为undefined赋值会报错
+        // 严格模式下如果不加new调用，而采用直接调用构造函数的方法，此时里面的this为undefined，若为undefined添加属性则会报错
         // 使用new的话this指向的就是实例对象
 
-        // function Star() {
-        //     this.name = 'adele'
-        // }
-        // Star()   
-        // console.log(window.name);
+        function Star() {
+            this.name = 'adele'
+        }
+        Star()
 
         // 6.严格模式下定时器中的this指向的还是window
         // setTimeout(function() {
@@ -49,27 +48,27 @@
         // fn(2, 3)
 
         // 8.为了与ES6中的块级作用域‘接轨’，ES5的严格模式不允许在非函数的代码块中声明函数
-        if (true) {
-            //会报错
-            function fun() {
-                console.log(1);
-            }
-            fun()
-        }
-        for (var i = 0; i < 5; i++) {
-            //会报错
-            function fun() {
-                console.log(1);
-            }
-            fun()
-        }
+        // if (true) {
+        //     //会报错
+        //     function fun() {
+        //         console.log(1);
+        //     }
+        //     fun()
+        // }
+        // for (var i = 0; i < 5; i++) {
+        //     //会报错
+        //     function fun() {
+        //         console.log(1);
+        //     }
+        //     fun()
+        // }
 
-        function func1() {
-            // 合法
-            function func2() {
+        // function func1() {
+        //     // 合法
+        //     function func2() {
 
-            }
-        }
+        //     }
+        // }
     </script>
 </body>
 
