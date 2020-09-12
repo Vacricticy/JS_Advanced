@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        function Star(name) {
-            this.name = name
-        }
-        // Star.prototype.sing = function() {
-        //         console.log(this.name + 'sing a song');
-        // }
+      function Star(name) {
+        this.name = name;
+      }
+      // Star.prototype.sing = function() {
+      //         console.log(this.name + 'sing a song');
+      // }
 
-        // 2.若为构造函数的原型对象赋值为一个新的对象，则会覆盖掉原来的constructor属性
-        // 3.为了能查看到原型对象所依赖的构造函数，必须手动为原型对象添加constructor属性
-        Star.prototype = {
-            constructor: Star,
-            sing: function() {
-                console.log(this.name + 'sing a song');
-            }
-        }
-        var adele = new Star('阿黛尔')
-        console.log(Star.prototype);
-        // 1.默认情况下构造函数的原型对象上都有一个constructor属性，该属性指回了原构造函数
-        console.log(adele.__proto__.constructor);
+      // 2.若为构造函数的原型对象赋值为一个新的对象，则会覆盖掉原来的constructor属性
+      // 3.为了能查看到原型对象所依赖的构造函数，必须手动为原型对象添加constructor属性
+      Star.prototype = {
+        constructor: Star,
+        sing: function () {
+          console.log(this.name + "sing a song");
+        },
+      };
+      var adele = new Star("阿黛尔");
+      console.log(Star.prototype);
+      // 1.默认情况下构造函数的原型对象上都有一个constructor属性，该属性指回了原构造函数
+      console.log(adele.__proto__.constructor);
 
-
-        // 总述：♥构造函数、原型对象、实例之间的三角关系
-        // 1.构造函数通过prototype属性指向原型对象
-        // 2.原型对象上的constructor属性又指回了构造函数
-        // 3.实例对象通过__proto__属性指向了原型对象，还可以通过__prototype.constructor指向构造函数
+      // 总述：♥构造函数、原型对象、实例之间的三角关系
+      // 1.构造函数通过prototype属性指向原型对象
+      // 2.原型对象上的constructor属性又指回了构造函数
+      // 3.实例对象通过__proto__属性指向了原型对象，还可以通过__prototype.constructor指向构造函数
     </script>
-</body>
-
+  </body>
 </html>

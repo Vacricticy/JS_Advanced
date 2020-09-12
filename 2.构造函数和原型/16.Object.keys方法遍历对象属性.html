@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var obj = {
-            name: 'xiaoming',
-            age: 12,
-            sex: '男'
-        }
-        console.log(Object.keys(obj)); //['name','age','sex']
-        // 通过Object.keys可以获取一个对象含有的属性的个数
-        console.log(Object.keys(obj).length);
+      var obj = {
+        name: "xiaoming",
+        age: 12,
+        sex: "男",
+      };
+      Object.defineProperty(obj, "color1", {
+        value: "red",
+        writable: true,
+        enumerable: false,
+        configurable: false,
+      });
+      Object.defineProperty(obj, "color2", {
+        value: "green",
+        writable: true,
+        enumerable: true,
+        configurable: false,
+      });
+      console.log(Object.keys(obj)); //["name", "age", "sex", "color2"]
+      // 通过Object.keys可以获取一个对象含有的可枚举属性的个数
+      console.log(Object.keys(obj).length); //4
+      for (k in obj) {
+        console.log(k); //name age sex color2
+      }
+      //   判断一个属性是否是可枚举的
+      console.log(obj.propertyIsEnumerable("color1")); //false
+      console.log(obj.propertyIsEnumerable("length")); //false
+      console.log(obj.propertyIsEnumerable("color2")); //true
 
-        var arr = ['apple', 'banana', 'orange'];
-        // Object.keys只返回可枚举的属性，Object.getOwnPropertyNames还会返回不可枚举的属性
-        console.log(Object.keys(arr).length); //3
-        console.log(Object.getOwnPropertyNames(arr)); //["0", "1", "2", "length"]
-        console.log(Object.getOwnPropertyNames(arr).length); //4
+      var arr = ["apple", "banana", "orange"];
+      // Object.keys只返回可枚举的属性，Object.getOwnPropertyNames还会返回不可枚举的属性
+      console.log(Object.keys(arr).length); //3
+      console.log(Object.getOwnPropertyNames(arr)); //["0", "1", "2", "length"]
+      console.log(Object.getOwnPropertyNames(arr).length); //4
 
-
-        // 问题：什么是可枚举属性和不可枚举属性，在基本的数据类型中怎么体现
+      // 问题：什么是可枚举属性和不可枚举属性，在基本的数据类型中怎么体现
+      //   可枚举和不可枚举，是由属性的enumerable值决定的
+      //   for...in只能遍历出可枚举的属性。
+      //   Object.keys返回的也是可枚举的属性
     </script>
-</body>
-
+  </body>
 </html>

@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        // 1.闭包的概念：
-        // 闭包是一个函数，该函数中的局部变量可以被其他函数访问到。闭包可以通过debug断点查看到。
-        // 下述中的闭包函数指的就是fn函数。
-        // function fn() {
-        //     var num = 10;
+      // 1.闭包的概念：
+      // 闭包是一个函数，该函数中的局部变量可以被其他函数访问到。闭包可以通过debug断点查看到。
+      // 下述中的闭包函数指的就是fn函数。
+      // function fn() {
+      //     var num = 10;
 
-        //     function func() {
-        //         console.log(num);
-        //     }
-        //     func()
-        // }
-        // fn()
+      //     function func() {
+      //         console.log(num);
+      //     }
+      //     func()
+      // }
+      // fn()
 
-        // 2.❤ 闭包的作用：延伸了变量的作用范围
-        function fn() {
-            // 由于fn是闭包函数，所以num这个变量不会在调用了fn()后立即销毁，因为还有别的函数会使用这个变量。只有等所以函数都调用完后才会销毁这个变量。
-            var num = 10;
-            return function() {
-                console.log(num);
-            }
-        }
-        var f = fn()
-        f()
+      // 2.❤ 闭包的作用：延伸了变量的作用范围
+      function fn() {
+        // 由于fn是闭包函数，所以num这个变量不会在调用了fn()后立即销毁，因为还有别的函数会使用这个变量。只有等所以函数都调用完后才会销毁这个变量。
+        var num = 10;
+        return function () {
+          console.log(num);
+        };
+      }
+      var f = fn();
+      f();
     </script>
-</body>
-
+  </body>
 </html>

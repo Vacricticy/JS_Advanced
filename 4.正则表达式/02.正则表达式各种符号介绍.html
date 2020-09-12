@@ -98,10 +98,13 @@
         // console.log(reg151.test('abcabc')); //false
         // console.log(reg151.test('abcc')); //true
 
-        // 16.预定义类：\d表示0-9
+        // 16.预定义类：\d表示0-9;\w表示字母数字下划线
         // var reg16 = /\d{3}/
         // console.log(reg16.test('512')); //true
         // console.log(reg16.test('5-2')); //false
+        // var reg16_2 = /\w{2}/
+        // console.log(reg16_2.test('Aa')); //true
+        // console.log(reg16_2.test('*x'));//false
 
         // 17.或：|
         // var reg17 = /^\d{3}|abc$/

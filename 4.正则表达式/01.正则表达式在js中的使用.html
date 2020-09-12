@@ -16,11 +16,19 @@
         // 方法二：字面量√
         var regExp = /123/
 
-        // 正则表达式验证方法： 正则表达式对象.test()
+        // 正则表达式验证的三种方法： 
+        // 1.正则表达式对象.test()
         console.log(regExp.test(123)); //true        
         console.log(regExp.test('123')); //true
         console.log(regExp.test(61234)); //true
         console.log(regExp.test(343)); //false
+
+        // 2.字符串.match()---返回字符串中所有匹配的字符，返回结果为一个新的数组
+        var target = 'bg.jpg index.html app.js index.css test.jpg';
+        var regExp2 = /(\w+)\.jpg/g;
+        console.log(target.match(regExp2)); //["bg.jpg", "test.jpg"]
+
+        // 3.exec方法---返回匹配内容等信息组成的对象
     </script>
 </body>
 
