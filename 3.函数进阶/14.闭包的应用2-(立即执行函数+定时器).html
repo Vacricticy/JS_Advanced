@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>
-        <ul>
-            <li>苹果</li>
-            <li>樱桃</li>
-            <li>水蜜桃</li>
-            <li>榴莲</li>
-        </ul>
+      <ul>
+        <li>苹果</li>
+        <li>樱桃</li>
+        <li>水蜜桃</li>
+        <li>榴莲</li>
+      </ul>
     </div>
     <script>
-        // ❤闭包应用2：2秒后打印出所有li标签对应的值
-        // 原理：立即执行函数+定时器（在定时器中想要使用的变量可以通过立即执行函数获取）
+      // ❤闭包应用2：2秒后打印出所有li标签对应的值
+      // 原理：立即执行函数+定时器（在定时器中想要使用的变量可以通过立即执行函数获取）
 
-        var lis = document.querySelectorAll('li')
+      var lis = document.querySelectorAll("li");
 
-        // ES5方法：
-        // 解决思路：
-        // 需要考虑的问题是，如何想让定时器在2秒后获取的i值不是for循环走完后的i值，而是原本的索引值，可以让立即执行函数充当闭包函数来传递想要的i变量。
-        // 通过闭包的作用，立即执行函数中的函数可以访问到立即执行函数中的变量值
-        for (var i = 0; i < lis.length; i++) {
-            (function(i) {
-                setTimeout(function() {
-                    // 由于处在闭包函数中，此时的i指向的是立即执行函数的i值
-                    console.log(lis[i].innerHTML);
-                }, 2000)
-            })(i)
-        }
+      // ES5方法：
+      // 解决思路：
+      // 需要考虑的问题是，如何想让定时器在2秒后获取的i值不是for循环走完后的i值，而是原本的索引值，可以让立即执行函数充当闭包函数来传递想要的i变量。
+      // 通过闭包的作用，立即执行函数中的函数可以访问到立即执行函数中的变量值
+      for (var i = 0; i < lis.length; i++) {
+        (function (i) {
+          setTimeout(function () {
+            console.log(i);
+            // 由于处在闭包函数中，此时的i指向的是立即执行函数的i值
+            // console.log(lis[i].innerHTML);
+          }, 2000);
+        })(i);
+      }
 
-        // ES6方法：
-        // lis.forEach((value, index) => {
-        //     setTimeout(() => {
-        //         console.log(value.innerHTML);
-        //     }, 2000);
-        // })
+      // ES6方法：
+      // lis.forEach((value, index) => {
+      //     setTimeout(() => {
+      //         console.log(value.innerHTML);
+      //     }, 2000);
+      // })
     </script>
-</body>
-
+  </body>
 </html>
