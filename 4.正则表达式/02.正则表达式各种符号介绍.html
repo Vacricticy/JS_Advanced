@@ -1,117 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        // 读正则表达式时，第一步是看里面是否有被^...$包裹，若有，则表示精确匹配
+      // 读正则表达式时，第一步是看里面是否有被^...$包裹，若有，则表示精确匹配
 
-        // 1.边界符^
-        // var reg1 = /^abc/
-        // console.log(reg1.test('abchij')); //true
-        // console.log(reg1.test('abbij')); //false
+      // 1.边界符^
+      // var reg1 = /^abc/
+      // console.log(reg1.test('abchij')); //true
+      // console.log(reg1.test('abbij')); //false
 
-        // 2.边界符$
-        // var reg2 = /abc$/
-        // console.log(reg2.test('abccabc')); //true
-        // console.log(reg2.test('abcabb')); //false
+      // 2.边界符$
+      // var reg2 = /abc$/
+      // console.log(reg2.test('abccabc')); //true
+      // console.log(reg2.test('abcabb')); //false
 
-        // ❤3.精确匹配：边界符^加边界符$
-        // var reg3 = /^abc$/
-        // console.log(reg3.test('abc')); //true
-        // console.log(reg3.test('abcd')); //false
+      // ❤3.精确匹配：边界符^加边界符$
+      // var reg3 = /^abc$/
+      // console.log(reg3.test('abc')); //true
+      // console.log(reg3.test('abcd')); //false
 
-        // 4.字符类[],多选一
-        // var reg4 = /[abc]/
-        // console.log(reg4.test('amm')); //true
-        // console.log(reg4.test('b')); //true
+      // 4.字符类[],多选一
+      // var reg4 = /[abc]/
+      // console.log(reg4.test('amm')); //true
+      // console.log(reg4.test('b')); //true
 
-        // 5.必须为a,b,c中的一个字符
-        // var reg5 = /^[abc]$/
-        // console.log(reg5.test('ab')); //false
-        // console.log(reg5.test('a')); //true
+      // 5.必须为a,b,c中的一个字符
+      // var reg5 = /^[abc]$/
+      // console.log(reg5.test('ab')); //false
+      // console.log(reg5.test('a')); //true
 
-        // 6.范围符：-   应用：必须为26个小写的英文字母
-        // var reg6 = /[a-z]/
-        // console.log(reg6.test('A')); //false
-        // console.log(reg6.test('m')); //true
+      // 6.范围符：-   应用：必须为26个小写的英文字母
+      // var reg6 = /[a-z]/
+      // console.log(reg6.test('A')); //false
+      // console.log(reg6.test('m')); //true
 
-        // ❤7.字符组合,每一个由范围符-连接起来的都可以被看成是一个字符组合，[]中多个字符组合之间可以任选一个
-        // var reg7 = /^[a-zA-Z0-9_-]$/
-        // console.log(reg7.test(7)); //true
-        // console.log(reg7.test('d')); //true
-        // console.log(reg7.test('D')); //true
-        // console.log(reg7.test('_')); //true
-        // console.log(reg7.test('-')); //true
+      // ❤7.字符组合,每一个由范围符-连接起来的都可以被看成是一个字符组合，[]中多个字符组合之间可以任选一个
+      // var reg7 = /^[a-zA-Z0-9_-]$/
+      // console.log(reg7.test(7)); //true
+      // console.log(reg7.test('d')); //true
+      // console.log(reg7.test('D')); //true
+      // console.log(reg7.test('_')); //true
+      // console.log(reg7.test('-')); //true
 
-        // ❤8.中括号中的^为取反符，与边界符^不同，中括号中的^表示取反的意思
-        // var reg8 = /^[^a-zA-Z0-9_-]$/
-        // console.log(reg8.test(7)); //false
-        // console.log(reg8.test('d')); //false
-        // console.log(reg8.test('D')); //false
-        // console.log(reg8.test('_')); //false
-        // console.log(reg8.test('-')); //false
-        // console.log(reg8.test('!')); //true
-        // console.log(reg8.test('aa')); //false
+      // ❤8.中括号中的^为取反符，与边界符^不同，中括号中的^表示取反的意思
+      // var reg8 = /^[^a-zA-Z0-9_-]$/
+      // console.log(reg8.test(7)); //false
+      // console.log(reg8.test('d')); //false
+      // console.log(reg8.test('D')); //false
+      // console.log(reg8.test('_')); //false
+      // console.log(reg8.test('-')); //false
+      // console.log(reg8.test('!')); //true
+      // console.log(reg8.test('aa')); //false
 
-        // 9.量词符*,表示可以出现0次或多次
-        // var reg9 = /^a*$/
-        // console.log(reg9.test('aaa')); //true
-        // console.log(reg9.test('')); //true
+      // 9.量词符*,表示可以出现0次或多次
+      // var reg9 = /^a*$/
+      // console.log(reg9.test('aaa')); //true
+      // console.log(reg9.test('')); //true
 
-        // 10.量词符+,表示可以出现1次或多次
-        // var reg10 = /^a+$/
-        // console.log(reg10.test('aaa')); //true
-        // console.log(reg10.test('')); //false
+      // 10.量词符+,表示可以出现1次或多次
+      // var reg10 = /^a+$/
+      // console.log(reg10.test('aaa')); //true
+      // console.log(reg10.test('')); //false
 
-        // 11.量词符?,表示可以出现0次或1次
-        // var reg11 = /^a?$/
-        // console.log(reg11.test('aaa')); //false
-        // console.log(reg11.test('')); //true
+      // 11.量词符?,表示可以出现0次或1次
+      // var reg11 = /^a?$/
+      // console.log(reg11.test('aaa')); //false
+      // console.log(reg11.test('')); //true
 
-        // 12.量词符{3},必须重复3次
-        // var reg12 = /^a{3}$/
-        // console.log(reg12.test('aaaa')); //false
-        // console.log(reg12.test('aaa')); //true
+      // 12.量词符{3},必须重复3次
+      // var reg12 = /^a{3}$/
+      // console.log(reg12.test('aaaa')); //false
+      // console.log(reg12.test('aaa')); //true
 
-        // 13.量词符{3,}，必须连续重复3次以上
-        // var reg13 = /a{3,}/
-        // console.log(reg13.test('aa')); //false
-        // console.log(reg13.test('aaa')); //true
-        // console.log(reg13.test('asaa')); //false
+      // 13.量词符{3,}，必须连续重复3次以上
+      // var reg13 = /a{3,}/
+      // console.log(reg13.test('aa')); //false
+      // console.log(reg13.test('aaa')); //true
+      // console.log(reg13.test('asaa')); //false
 
-        // 14.量词符{3,5}，必须重复3到5次
-        // var reg14 = /a{3,5}/
-        // console.log(reg14.test('aaaavc')); //true
+      // 14.量词符{3,5}，必须重复3到5次
+      // var reg14 = /a{3,5}/
+      // console.log(reg14.test('aaaavc')); //true
 
-        // ❤15.小括号表示优先级
-        // var reg15 = /^(abc){2}$/
-        // console.log(reg15.test('abcabc')); //true
-        // console.log(reg15.test('abcc')); //false
+      // ❤15.小括号表示优先级
+      // var reg15 = /^(abc){2}$/
+      // console.log(reg15.test('abcabc')); //true
+      // console.log(reg15.test('abcc')); //false
 
-        // var reg151 = /^abc{2}$/
-        // console.log(reg151.test('abcabc')); //false
-        // console.log(reg151.test('abcc')); //true
+      // var reg151 = /^abc{2}$/
+      // console.log(reg151.test('abcabc')); //false
+      // console.log(reg151.test('abcc')); //true
 
-        // 16.预定义类：\d表示0-9;\w表示字母数字下划线
-        // var reg16 = /\d{3}/
-        // console.log(reg16.test('512')); //true
-        // console.log(reg16.test('5-2')); //false
-        // var reg16_2 = /\w{2}/
-        // console.log(reg16_2.test('Aa')); //true
-        // console.log(reg16_2.test('*x'));//false
+      // 16.预定义类：\d表示0-9;\w表示字母数字下划线；\s表示空白字符
+      // var reg16 = /\d{3}/
+      // console.log(reg16.test('512')); //true
+      // console.log(reg16.test('5-2')); //false
+      // var reg16_2 = /\w{2}/
+      // console.log(reg16_2.test('Aa')); //true
+      // console.log(reg16_2.test('*x'));//false
 
-        // 17.或：|
-        // var reg17 = /^\d{3}|abc$/
-        // console.log(reg17.test('512')); //true
-        // console.log(reg17.test('5-2')); //false
-        // console.log(reg17.test('abc')); //true
+      // 17.或：|
+      // var reg17 = /^\d{3}|abc$/
+      // console.log(reg17.test('512')); //true
+      // console.log(reg17.test('5-2')); //false
+      // console.log(reg17.test('abc')); //true
     </script>
-</body>
-
+  </body>
 </html>

@@ -30,56 +30,79 @@
       //   console.log(obj1); //obj1.msg.age的值也会变成30，说明引用的同一块地址
 
       // 3.ES6中的浅拷贝
-      var obj4 = {
-        name: "aaa",
-      };
-      Object.assign(obj4, obj1);
-      console.log(obj4.msg.age);
+      // var obj4 = {
+      //   name: "aaa",
+      // };
+      // Object.assign(obj4, obj1);
+      // obj4.msg.age = 30;
+      // obj4.name = "alice";
+      // console.log(obj1); //tim 30
 
-      obj4.msg.age = 30;
-      obj4.name = "alice";
-      console.log(obj1); //tim 30
-      console.log(obj4); //alice 30
+      // let arr1 = [1, 2, { name: "liu" }];
+      // let arr2 = Object.assign([], arr1);
+      // console.log(arr2); //[1, 2,  {name: "liu"}]
+      // arr2[2].name = "xiao";
+      // console.log(arr1); ////[1, 2,  {name: "xiao"}]
 
-      // Obejct.assign()只有一个参数时，会直接返回该参数
-      //   var obj4 = {};
-      // obj4 = Object.assign(obj1);
-      // console.log(obj1 === obj4); //true
-      //   obj4.msg.age = 30;
-      //   obj4.name = "alice";
-      //   console.log(obj1.name); //alice
+      // 4.通过slice,concat实现浅拷贝
+      // let arr3 = [1, 2, { name: "liu", likes: ["music", "movie"] }];
+      // let arr4 = arr3.slice(0);
+      // console.log(arr4); //[1, 2, { name: "liu", likes: ["music", "movie"] }]
+      // arr4[2].name = "xiao";
+      // console.log(arr3); //[1, 2, { name: "xiao", likes: ["music", "movie"] }]
 
-      // 深拷贝：每一层的数据都会被拷贝，开辟的都是新的空间。
-      //   var obj = {
-      //       name: 'tim',
-      //       color: ['white', 'black'],
-      //       size: {
-      //           content: 'small'
-      //       }
-      //   };
-      //   以下为通过函数递归的方式实现深拷贝
-      //     function deepCopy(newObj, oldObj) {
-      //         for (k in oldObj) {
-      //             // 判断是不是数组
-      //             if (oldObj[k] instanceof Array) {
-      //                 newObj[k] = []
-      //                 deepCopy(newObj[k], oldObj[k]);
-      //                 // 判断是不是对象
-      //                 // ❤ 注意：需要先判断是不是数组，再判断是不是对象，因为数组也属于对象
-      //             } else if (oldObj[k] instanceof Object) {
-      //                 newObj[k] = {}
-      //                 deepCopy(newObj[k], oldObj[k])
-      //             } else {
-      //                 newObj[k] = oldObj[k]
-      //             }
-      //         }
+      // let arr5 = [1, 2, { name: "liu", likes: ["music", "movie"] }];
+      // let arr6 = arr5.concat([]);
+      // console.log(arr6); //[1, 2, { name: "liu", likes: ["music", "movie"] }]
+      // console.log(arr6.length); //3
+      // arr6[2].likes[0] = "drink";
+      // console.log(arr5); //[1, 2, { name: "liu", likes: ["drink", "movie"] }]
+
+      // 5.通过...实现数组的浅拷贝
+      // let arr3 = [1, 2, { name: "title" }];
+      // let arr4 = new Array(...arr3);
+      // arr4[0] = "aaa";
+      // arr4[2].name = "xiao";
+      // console.log(arr3); //[1, 2, { name: "xiao" }]
+
+      // 6.深拷贝：每一层的数据都会被拷贝，开辟的都是新的空间。
+      // var obj = {
+      //   name: "tim",
+      //   color: ["white", "black"],
+      //   size: {
+      //     content: "small",
+      //   },
+      // };
+      // // 以下为通过函数递归的方式实现深拷贝
+      // function deepCopy(newObj, oldObj) {
+      //   for (k in oldObj) {
+      //     // 判断是不是数组
+      //     if (oldObj[k] instanceof Array) {
+      //       newObj[k] = [];
+      //       deepCopy(newObj[k], oldObj[k]);
+      //       // 判断是不是对象
+      //       // ❤ 注意：需要先判断是不是数组，再判断是不是对象，因为数组也属于对象
+      //     } else if (oldObj[k] instanceof Object) {
+      //       newObj[k] = {};
+      //       deepCopy(newObj[k], oldObj[k]);
+      //     } else {
+      //       newObj[k] = oldObj[k];
       //     }
-      //   var obj2 = {}
-      //   deepCopy(obj2, obj)
-      //   console.log(obj2);
-      //   obj2.color[0] = 'yellow' //深拷贝，不会改变原来的值
-      //   console.log(obj2);
-      //   console.log(obj);
+      //   }
+      // }
+      // var obj2 = {};
+      // deepCopy(obj2, obj);
+      // console.log(obj2);
+      // obj2.color[0] = "yellow"; //深拷贝，不会改变原来的值
+      // console.log(obj.color); //["white", "black"]
+
+      let arr1 = [1, 2, { name: "title" }];
+      let arr2 = arr1.valueOf();
+      console.log(arr1 === arr2); //true
+
+      let date = new Date();
+      let date2 = new Date(date);
+      console.log(date == date2);
     </script>
   </body>
 </html>

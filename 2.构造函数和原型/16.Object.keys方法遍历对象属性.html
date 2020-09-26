@@ -40,6 +40,7 @@
       // Object.keys只返回可枚举的属性，Object.getOwnPropertyNames还会返回不可枚举的属性
       console.log(Object.keys(arr).length); //3
       console.log(Object.getOwnPropertyNames(arr)); //["0", "1", "2", "length"]
+      console.log(Object.getOwnPropertyNames(obj)); //["name", "age", "sex", "color1", "color2"]
       console.log(Object.getOwnPropertyNames(arr).length); //4
 
       // 问题：什么是可枚举属性和不可枚举属性，在基本的数据类型中怎么体现
