@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
-</body>
-
+  <body></body>
 </html>
 <script>
-    class Star {
-        constructor(name, age) {
-            this.name = name;
-            this.age = age;
-        };
-        // 注意：方法与方法之不是逗号
-        sing(song) {
-            console.log(this.name + song);
-        }
+  class Star {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
     }
-    var adele = new Star('阿黛尔', 30)
-    var wf = new Star('王菲', 40)
-    console.log(adele);
-    console.log(wf);
+    // 注意：方法与方法之不是逗号,这是类，不是对象！
+    sing(song) {
+      console.log(this.name + song);
+    }
+  }
+  var adele = new Star("阿黛尔", 30);
+  var wf = new Star("王菲", 40);
+  console.log(adele);
+  console.log(wf);
 
-    adele.sing('hello') //阿黛尔hello
-    wf.sing('人间') //王菲人间
+  adele.sing("hello"); //阿黛尔hello
+  wf.sing("人间"); //王菲人间
 </script>

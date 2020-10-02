@@ -1,59 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
-</body>
-
+  <body></body>
 </html>
 <script>
-    // class Father {
-    //     constructor() {
+  // class Father {
+  //     constructor() {
 
-    //     }
-    //     money() {
-    //         console.log(100);
-    //     }
-    // }
-    // class Son extends Father {
+  //     }
+  //     money() {
+  //         console.log(100);
+  //     }
+  // }
+  // class Son extends Father {
 
-    // }
-    // var son = new Son()
-    // son.money()
+  // }
+  // var son = new Son()
+  // son.money()
 
-    class Father {
-        constructor(x, y) {
-            this.x = x
-            this.y = y
-        };
-        // 父类中的this指向的是父类构造函数创建的实例对象        
-        // 因为父类中的函数所访问的变量是在父类的实例对象身上去找的，
-        // 所以子类若想在调用的父类的方法中使用自身的变量，则需要通过super调用父类构造函数将其值传入父类中。
-        sum() {
-            console.log(this.x + this.y);
-        }
+  class Father {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
     }
-    // 关键字extends
-    class Son extends Father {
-        constructor(x, y) {
-            // 通过super调用父类的构造函数
-            super(x, y)
-        }
+    // 父类中的this指向的是父类构造函数创建的实例对象
+    // 因为父类中的函数所访问的变量是在父类的实例对象身上去找的，
+    // 所以子类若想在调用的父类的方法中使用自身的变量，则需要通过super调用父类构造函数将其值传入父类中。
+    sum() {
+      console.log(this.x + this.y);
     }
-    var son = new Son(1, 2)
-    var son2 = new Son(2, 3)
-    son.sum()
-    son2.sum()
+  }
+  // 关键字extends
+  class Son extends Father {
+    constructor(x, y) {
+      // 通过super调用父类的构造函数
+      super(x, y);
+    }
+  }
+  var son = new Son(1, 2);
+  var son2 = new Son(2, 3);
+  son.sum(); //3
+  son2.sum(); //5
 
-
-    // 可能出现的报错：
-    // ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
-    // 翻译： 当在访问this或在子构造函数return之前， 必须在子构造函数中先调用super构造函数。
-    // 解释：在子类访问this或在子类的构造函数返回实例对象前，必须调用super父类构造函数
+  // 可能出现的报错：
+  // ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+  // 翻译： 当在访问this或在子构造函数return之前， 必须在子构造函数中先调用super构造函数。
+  // 解释：在子类访问this或在子类的构造函数返回实例对象前，必须调用super父类构造函数
 </script>

@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        function fn(arr) {
-            console.log(this);
-            console.log(arr);
-        }
-        var o = {
-            name: 'bengbengbadei'
-        }
+      function fn(arr1, arr2) {
+        console.log(this);
+        console.log(arr1, arr2);
+      }
+      var o = {
+        name: "bengbengbadei",
+      };
 
-        // apply的两个作用：调用函数，改变this的指向
-        // 注意，传递的第二个参数必须是数组形式，在函数执行的过程中，传递进去的值会变成对应的值的类型
-        fn.apply(o, ['pink', 'white'])
-        fn.apply(o, [1, 2])
+      // apply的两个作用：调用函数，改变this的指向
+      // 注意，传递的第二个参数必须是数组形式，在函数执行的过程中，传递进去的值会变成对应的值的类型
+      fn.apply(o, ["pink", "white"]); //pink white
+      fn.apply(o, [1, 2]); //1 2
 
-        // fn.apply(o, [1, 2, 3])
+      // fn.apply(o, [1, 2, 3])
 
-        console.log(Math.max(1, 4, 6, 7)); //7
+      console.log(Math.max(1, 4, 6, 7)); //7
 
-        console.log(...[1, 2, 3]); //1 2 3
+      console.log(...[1, 2, 3]); //1 2 3
 
-        // 求一个数组中最大的值-方法一
-        console.log(Math.max(...[1, 2, 3])); //7
-        //求一个数组中最大的值-方法二
-        console.log(Math.max.apply(Math, [1, 2, 434, 545]));
-
-        // 问题：传递一个数组进去后，在函数内部打印出的怎么是第一个元素的值，而不是所有元素的值
+      // 求一个数组中最大的值-方法一
+      console.log(Math.max(...[1, 2, 3])); //7
+      //求一个数组中最大的值-方法二
+      console.log(Math.max.apply(Math, [1, 2, 434, 545]));
     </script>
-</body>
-
+  </body>
 </html>

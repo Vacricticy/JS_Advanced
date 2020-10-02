@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <button>按钮</button>
     <script>
-        var that
-        class Star {
-            constructor(name) {
-                that = this
-                console.log(this); //输出：Star{} 输出的是实例对象
-                this.name = name
-                this.sing('Someone like you')
-                var btn = document.querySelector('button')
-                btn.onclick = this.sing.bind(btn, 'hello');
-            }
-            sing(song) {
-                console.log(this);
-                console.log(that.name + song); //通过that获取实例对象上的值
-            }
+      var that;
+      class Star {
+        constructor(name) {
+          that = this;
+          console.log(this); //输出：Star{} 输出的是实例对象
+          this.name = name;
+          this.sing("Someone like you");
+          var btn = document.querySelector("button");
+          btn.onclick = this.sing.bind(btn, "hello");
         }
+        sing(song) {
+          console.log(this);
+          console.log(that.name + song); //通过that获取实例对象上的值
+        }
+      }
 
-        var adele = new Star('阿黛尔')
-        console.log(adele === that); //输出true  构造函数中的this指向的是实例对象
+      var adele = new Star("阿黛尔");
+      console.log(adele === that); //输出true  构造函数中的this指向的是实例对象
 
-
-        // es6中类没有变量提升，必须先定义类，再创建实例对象
-        // ♥ 类中的共有属性和方法在访问时必须加this
-
-        // 问题：js中哪些元素有变量提升
+      // es6的类没有变量提升，必须先定义类，再创建实例对象
+      // ♥ 类中的共有属性和方法在访问时必须加this
     </script>
-</body>
-
+  </body>
 </html>
