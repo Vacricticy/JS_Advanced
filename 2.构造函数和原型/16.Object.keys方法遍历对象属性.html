@@ -45,8 +45,16 @@
 
       // 问题：什么是可枚举属性和不可枚举属性，在基本的数据类型中怎么体现
       //   可枚举和不可枚举，是由属性的enumerable值决定的
-      //   for...in只能遍历出可枚举的属性。
-      //   Object.keys返回的也是可枚举的属性
+
+  /* 
+    总结：
+    for...in与Object.keys
+    相同点：都是常用的遍历对象属性的方法，两者都能遍历出对象中的可枚举属性。
+    不同点：for...in还会遍历出原型链上的属性，可以通过obj.hasOwnProperty(key)进行排除。
+            Obejct.keys(obj)不会遍历原型链上的属性。
+
+    Object.getOwnPropertyNames可以遍历出不可枚举的属性，但不会遍历原型对象上的属性
+  */
     </script>
   </body>
 </html>
